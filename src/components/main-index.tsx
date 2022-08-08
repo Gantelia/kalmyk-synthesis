@@ -12,10 +12,13 @@ function MainIndex() {
           id="field"
           placeholder="Введите текст"
         />
-        <button className="form-submit" type="submit"></button>
+        <button className="form-submit" type="submit">
+          <span className="visually-hidden">Прослушать</span>
+        </button>
       </form>
       <audio
-        className="audio"
+        className="visually-hidden"
+        role="none"
         src="https://upload.wikimedia.org/wikipedia/commons/0/0e/90-%C3%B6%C4%9Fleden_sonra.wav"
         controls
       ></audio>

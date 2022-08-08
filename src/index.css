@@ -109,3 +109,86 @@ body {
 .navigation-link-active {
   border-bottom: 1px solid #ffffff;
 }
+
+.main {
+  flex-grow: 1;
+}
+
+.main-index {
+  padding: 40px;
+}
+
+.slogan {
+  font-size: 22px;
+  line-height: 24px;
+  text-align: center;
+  color: #074f7d;
+  margin: 0;
+  margin-bottom: 35px;
+}
+
+.form {
+  display: flex;
+}
+
+.form-field {
+  font-size: 15px;
+  line-height: 15px;
+  display: inline-block;
+  padding: 12px;
+  border-radius: 3px;
+  border: none;
+  background-color: #eeeeee;
+  min-width: 0;
+  flex-grow: 1;
+  margin-right: 2px;
+}
+
+.form-field:hover {
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+.form-field:active {
+  opacity: 60%;
+}
+
+.form-submit {
+  min-width: 45px;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: none;
+  background-image: url("./images/speaker-icon.svg");
+  background-size: 41px 41px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.form-submit:hover {
+  background-color: #d5dfe4;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+.form-submit:active {
+  opacity: 60;
+}
+
+.page-footer {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #b4d0e1;
+}
+
+.page-footer-about {
+  margin-right: 5px;
+  font-size: 16px;
+  line-height: 13px;
+  opacity: 90%;
+}
+
+.page-footer-logo {
+  align-self: center;
+  border-radius: 50%;
+}
