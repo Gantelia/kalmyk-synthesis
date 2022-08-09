@@ -124,6 +124,7 @@ body {
 
 .form {
   display: flex;
+  margin-bottom: 10px;
 }
 
 .form-field {
@@ -181,6 +182,11 @@ body {
   color: #E02A1A;
   font-size: 18px;
   line-height: 24px;
+  text-align: center;
+}
+
+.loading-message {
+  margin: 0;
   text-align: center;
 }
 
@@ -248,4 +254,10 @@ body {
 
 .page-footer-logo:active {
   opacity: 30%;
+}
+
+.not-found {
+  font-size: 22px;
+  text-align: center;
+  color: #074f7d;
 }

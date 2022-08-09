@@ -6,7 +6,7 @@ function MainIndex() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isError, setIsError] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const prevTextRef = useRef("");
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -84,6 +84,7 @@ function MainIndex() {
           <br /> Попробуйте перезагрузить страницу
         </p>
       )}
+      {isLoading && !isError && <p className="loading-message">Загрузка...</p>}
       <audio
         className="audio"
         src="https://upload.wikimedia.org/wikipedia/commons/0/0e/90-%C3%B6%C4%9Fleden_sonra.wav"
