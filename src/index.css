@@ -110,6 +110,7 @@ body {
 
 .main-index {
   padding: 30px;
+  padding-bottom: 10px;
 }
 
 .slogan {
@@ -146,6 +147,10 @@ body {
   opacity: 60%;
 }
 
+.form-field:disabled {
+  opacity: 30%;
+}
+
 .form-submit {
   min-width: 45px;
   padding: 20px;
@@ -166,6 +171,21 @@ body {
 
 .form-submit:active {
   opacity: 60%;
+}
+
+.form-submit:disabled {
+  opacity: 30%;
+}
+
+.error {
+  color: #E02A1A;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.audio {
+  display: none;
 }
 
 .page-footer {

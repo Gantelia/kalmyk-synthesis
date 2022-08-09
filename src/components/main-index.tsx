@@ -1,24 +1,56 @@
-import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 // import { BACKEND_URL } from "../const";
 
 function MainIndex() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [text, setText] = useState<string>("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isError, setIsError] = useState(true);
 
   const prevTextRef = useRef("");
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const audioFile = audioRef.current;
+    if (audioFile === null) {
+      setIsLoading(true);
+    }
+    if (audioFile !== null) {
+      audioFile.onloadeddata = () => setIsLoading(false);
+    }
+    return () => {
+      if (audioFile !== null) {
+        audioFile.onloadeddata = null;
+      }
+    };
+  }, [prevTextRef]);
+
+  useEffect(() => {
+    const audioFile = audioRef.current;
+    if (audioFile === null) {
+      return;
+    }
+    if (audioFile && isPlaying) {
+      audioFile.play();
+    }
+  }, [isPlaying]);
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();
-    console.log(prevTextRef);
-
+    if (text.trim() === "") {
+      return;
+    }
     if (prevTextRef.current === text) {
       setIsPlaying(true);
-      console.log("isPlaying");
+      return;
     }
-    prevTextRef.current = text;
-    console.log(prevTextRef);
+    if (prevTextRef.current !== text) {
+      prevTextRef.current = text;
+      setIsSubmitting(true);
+      setIsPlaying(true);
+      return;
+    }
   };
 
   return (
@@ -41,16 +73,22 @@ function MainIndex() {
         <button
           className="form-submit"
           type="submit"
-          // disabled={isSubmitting}
+          disabled={isPlaying /*|| isSubmitting*/}
         >
           <span className="visually-hidden">Прослушать</span>
         </button>
       </form>
+      {isError && (
+        <p className="error">
+          Что-то пошло не так...
+          <br /> Попробуйте перезагрузить страницу
+        </p>
+      )}
       <audio
-        className="visually-hidden"
-        role="none"
+        className="audio"
         src="https://upload.wikimedia.org/wikipedia/commons/0/0e/90-%C3%B6%C4%9Fleden_sonra.wav"
-        controls
+        ref={audioRef}
+        onEnded={() => setIsPlaying(false)}
       ></audio>
     </main>
   );
