@@ -5,13 +5,6 @@
   src: local('Open Sans Regular'), local('OpenSans-Regular'), url('fonts/OpenSans-Regular.woff2') format('woff2');
 }
 
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Open Sans Bold'), local('OpenSans-Bold'), url('fonts/OpenSans-Bold.woff2') format('woff2');
-}
-
 *,
 ::before,
 ::after {
@@ -116,7 +109,7 @@ body {
 }
 
 .main-index {
-  padding: 35px;
+  padding: 30px;
 }
 
 .slogan {
@@ -125,7 +118,7 @@ body {
   text-align: center;
   color: #074f7d;
   margin: 0;
-  margin-bottom: 35px;
+  margin-bottom: 40px;
 }
 
 .form {
