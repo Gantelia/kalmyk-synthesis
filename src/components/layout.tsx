@@ -2,7 +2,6 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 
 function Layout() {
   const location = useLocation();
-  console.log(location);
 
   return (
     <div className="app">

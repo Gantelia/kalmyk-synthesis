@@ -165,7 +165,7 @@ body {
 }
 
 .form-submit:active {
-  opacity: 60;
+  opacity: 60%;
 }
 
 .page-footer {
@@ -208,7 +208,8 @@ body {
   padding: 0;
   list-style-type: none;
   display: grid;
-  gap: 6px;
+  column-gap: 6px;
+  row-gap: 14px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   justify-items: center;
@@ -219,4 +220,12 @@ body {
   line-height: 22px;
   padding: 5px;
   word-break: break-word;
+}
+
+.page-footer-logo:hover {
+  opacity: 60%;
+}
+
+.page-footer-logo:active {
+  opacity: 30%;
 }
