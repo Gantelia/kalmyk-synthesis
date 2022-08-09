@@ -1,18 +1,31 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 function Layout() {
+  const location = useLocation();
+  console.log(location);
+
   return (
     <div className="app">
       <header className="page-header">
         <nav className="navigation">
           <ul className="navigation-list">
             <li className="navigation-item">
-              <Link to="/" className="navigation-link navigation-link-active">
+              <Link
+                to="/"
+                className={`navigation-link ${
+                  location.pathname === "/" ? "navigation-link-active" : ""
+                }`}
+              >
                 Главная
               </Link>
             </li>
             <li className="navigation-item">
-              <Link to="about" className="navigation-link">
+              <Link
+                to="about"
+                className={`navigation-link ${
+                  location.pathname === "/about" ? "navigation-link-active" : ""
+                }`}
+              >
                 О нас
               </Link>
             </li>
