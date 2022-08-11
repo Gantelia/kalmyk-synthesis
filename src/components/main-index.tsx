@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
+import { validateInput } from "../utils";
 // import { BACKEND_URL } from "../const";
 
 function MainIndex() {
@@ -38,7 +39,7 @@ function MainIndex() {
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();
-    if (text.trim() === "") {
+    if (!validateInput(text)) {
       return;
     }
     if (prevTextRef.current === text) {
