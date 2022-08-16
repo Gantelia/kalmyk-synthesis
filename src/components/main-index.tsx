@@ -2,15 +2,22 @@ import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 import { validateInput } from "../utils";
 // import { BACKEND_URL } from "../const";
 
+const test = require("../audio/test.wav");
+
 function MainIndex() {
   const [text, setText] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [data, setData] = useState(test);
 
   const prevTextRef = useRef("");
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // useEffect(() => {
+  //запрос на сервер
+  // });
 
   useEffect(() => {
     const audioFile = audioRef.current;
@@ -88,10 +95,11 @@ function MainIndex() {
       {isLoading && !isError && <p className="loading-message">Загрузка...</p>}
       <audio
         className="audio"
-        src="https://upload.wikimedia.org/wikipedia/commons/0/0e/90-%C3%B6%C4%9Fleden_sonra.wav"
         ref={audioRef}
         onEnded={() => setIsPlaying(false)}
-      ></audio>
+      >
+        <source type="audio/wav" src={data} />
+      </audio>
     </main>
   );
 }
