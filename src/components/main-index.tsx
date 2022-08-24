@@ -63,7 +63,7 @@ function MainIndex() {
 
   return (
     <main className="main-index main">
-      <h1 className="visually-hidden">Синтез</h1>
+      <h1 className="visually-hidden">Синтез калмыцкой речи</h1>
       <p className="slogan">Калмыцкий язык для всех!</p>
       <form className="form" action="#" method="post" onSubmit={handleSubmit}>
         <label className="visually-hidden" htmlFor="field"></label>
