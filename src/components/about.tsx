@@ -5,7 +5,7 @@ function About() {
       <dl className="main-inner-list">
         <div className="main-inner-item">
           <dt className="main-inner-role">Руководитель проекта</dt>
-          <dd className="main-inner-name">Руслан</dd>
+          <dd className="main-inner-name">Гавинов Руслан</dd>
         </div>
         <div className="main-inner-item">
           <dt className="main-inner-role">Бэкенд</dt>

@@ -109,7 +109,7 @@ body {
 }
 
 .main-index {
-  padding: 30px;
+  padding: 30px 28px;
   padding-bottom: 10px;
 }
 
@@ -119,7 +119,7 @@ body {
   text-align: center;
   color: #074f7d;
   margin: 0;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .form {
@@ -128,8 +128,9 @@ body {
 }
 
 .form-field {
+  font-family: inherit;
   font-size: 15px;
-  line-height: 15px;
+  line-height: 19px;
   display: inline-block;
   padding: 12px;
   border-radius: 3px;
@@ -138,6 +139,7 @@ body {
   min-width: 0;
   flex-grow: 1;
   margin-right: 2px;
+  resize: none;
 }
 
 .form-field:hover {
@@ -150,6 +152,12 @@ body {
 
 .form-field:disabled {
   opacity: 30%;
+}
+
+.form-field::placeholder {
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 15px;
 }
 
 .form-submit {
@@ -216,7 +224,8 @@ body {
 }
 
 .main-inner {
-  padding: 20px 25px;
+  padding: 26px;
+  padding-top: 20px;
 }
 
 .main-inner-title {
