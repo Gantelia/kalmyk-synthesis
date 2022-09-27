@@ -1,5 +1,5 @@
-export const validateInput = (text: string) => {
-  return /^[-,.%+();:?!"'а-яА-ЯёЁәӘһҺҗҖөӨүҮңҢ0-9\s]+$/.test(text.trim());
+export const isInputValid = (text: string) => {
+  return /^[-,.%+();:?!"'\sа-яА-ЯёЁәӘһҺҗҖөӨүҮңҢ0-9\s]+$/.test(text.trim());
 }
 
 export const checkStatus = (response: Response) => {

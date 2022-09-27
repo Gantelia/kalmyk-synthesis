@@ -1,11 +1,12 @@
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
-import { BACKEND_URL } from "../const";
-import { checkStatus, validateInput } from "../utils";
+import { checkStatus, isInputValid } from "../../utils";
 
-const test = require("../audio/test.wav");
+const test = require("../../audio/test.wav");
+const BACKEND_URL = 'http://localhost:8000';
 
 function MainIndex() {
   const [text, setText] = useState<string>("");
+  const [isValid, setIsValid] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -25,7 +26,10 @@ function MainIndex() {
             mode: "no-cors",
           }
         );
-        console.log(response);
+        //Тело ответа не приходит с сервера,
+        // поэтому закомментированный код
+        //  на данный момент не работает
+
         // const voiceName = response.data.filename;
         // setVoiceURL(`${BACKEND_URL}/download/${voiceName}`);
         // checkStatus(response);
@@ -78,9 +82,8 @@ function MainIndex() {
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();
-    console.log("onSubmit", isSubmitting);
 
-    if (!validateInput(text)) {
+    if (!isValid) {
       return;
     }
 
@@ -108,10 +111,11 @@ function MainIndex() {
           name="audition-text"
           rows={3}
           id="field"
-          placeholder="Введите текст на калмыцком"
-          onInput={(evt: ChangeEvent<HTMLTextAreaElement>) =>
-            setText(evt.target.value)
-          }
+          placeholder="Введите текст"
+          onInput={(evt: ChangeEvent<HTMLTextAreaElement>) => {
+            setText(evt.target.value);
+            setIsValid(isInputValid(evt.target.value));
+          }}
           disabled={isSubmitting}
         />
         <button
@@ -122,6 +126,10 @@ function MainIndex() {
           <span className="visually-hidden">Прослушать</span>
         </button>
       </form>
+      {!isValid && text &&
+        <p className="validation">
+          Доступны только буквы калмыцкого алфавита, цифры и знаки препинания
+        </p>}
       {isError && (
         <p className="error">
           Что-то пошло не так...

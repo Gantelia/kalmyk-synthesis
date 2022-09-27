@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Layout from "./layout";
-import MainIndex from "./main-index";
-import About from "./about";
-import { AppRoute } from "../const";
-import NotFound from "./not-found";
+import Layout from "../layout/layout";
+import MainIndex from "../main-index/main-index";
+import About from "../about/about";
+import { AppRoute } from "../../const";
+import NotFound from "../not-found/not-found";
 
 function App() {
   return (
